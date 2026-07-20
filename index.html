@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>elena.com</title>
+
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            .navbar {
+                background-color:#AC9C8D;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                padding: 0 20px;
+            }
+
+            .nav-list {
+                list-style-type: none;
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            .nav-item {
+                position: relative;
+            }
+
+            .nav-link {
+                display:block;
+                color: #322D29;
+                text-align: center;
+                padding: 14px 20px;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+            }
+
+            .nav-link:hover {
+                background-color: #72383D;
+                color:#EFE9E1;
+            }
+
+            .nav-link.active {
+                background-color: #EFE9E1;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar" aria-label="Main Navigation">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active" aria-current="page">Home</a>
+                 </li>
+                <li class="nav-item">
+                    <a href="#blog" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
