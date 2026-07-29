@@ -6,14 +6,61 @@
         <title>elena.com</title>
 
         <style>
-            .body {
+            body {
                 text-align: center;
                 align-items: center;
                 font-size:x-large;
                 background-color: #efe9e1;
+                text-decoration-color: #322d29;
                 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 padding-top: 30px;
-                }
+            }
+
+            carousel-wrapper {
+                max-width: 800px;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            carousel {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                border-radius: 8px;
+            }
+
+            slide {
+                flex: 0 0 100%;
+                scroll-snap-align: center;
+            }   
+            
+            slide img {
+                width: 100%;
+                height:auto;
+                display: block;
+                object-fit: cover;
+            }
+
+            carousel-nav {
+                display:flex;
+                justify-content:center;
+                gap: 10px;
+                margin-top:15px;
+            }
+
+            carousel-nav a {
+                width:12px;
+                height:12px;
+                background-color: #ac9c8d;
+                border-radius: 50%;
+                text-decoration: none;
+                transition: background 0.3s;
+            }
+
+            carousel-nav a:hover {
+               background-color: #322d29; 
+            }
         </style>
 
     <body>
@@ -30,12 +77,34 @@
             <li>aspiring engineer</li>
             <li>a workaholic</li>
             <li>professional doomscroller & larper</li>
-            <li>kpop fan -> carat, stay, dive, briize, engene, allyz, ever</li>
+            <li>kpop fan - carat, stay, dive, briize, engene, allyz, ever</li>
             <li>passionate about bubble tea, jelly, ice cream, candy, and potatoes</li>
         </ul>
 
 
         <h2>role models</h2>
+
+            <div class="carousel-wrapper">
+                <div class="carousel">
+                    <div class="slide" id="slide-1">
+                        <img src="https://picsum.photos" alt="Slide 1">
+                    </div>
+                    <div class="slide" id="slide-2">
+                        <img src="https://picsum.photos" alt="Slide 2">
+                    </div>
+                    <div class="slide" id="slide-3">
+                        <img src="https://picsum.photos" alt="Slide 3">
+                    </div>
+                </div>
+  
+                <!-- Navigation Links -->
+                <div class="carousel-nav">
+                    <a href="#slide-1"></a>
+                    <a href="#slide-2"></a>
+                    <a href="#slide-3"></a>
+                </div>
+            </div>
+
 
         <h2>projects</h2>
 
