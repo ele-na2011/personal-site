@@ -1,0 +1,39 @@
+body {
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    font-size:x-large;
+    color: #322d29;
+    background-color: #efe9e1;
+    padding-left: 20%;
+    padding-right: 20%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 30px;
+    border-top: 10px solid #72383d;
+    border-bottom: 10px solid #72383d;
+    }
+
+            a {
+                color:#72383d;
+            }
+
+            h2 {
+                text-align: center;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            .image {
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                border-radius: 10px;
+            }
+
+            hr {
+                color:#72383d;
+                height: 3px;
+            }
