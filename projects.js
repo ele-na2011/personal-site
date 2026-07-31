@@ -17,10 +17,6 @@ const PROJECTS = [
     teaser: "nonprofit magazine specifically for teens & students",
     year: "2026",
     image: "",
-    links: [
-      { label: "Live site", url: "#", primary: true },
-      { label: "GitHub", url: "#" }
-    ],
     article: [
       {
         heading: "the problem",
