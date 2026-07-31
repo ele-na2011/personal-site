@@ -39,46 +39,7 @@ const PROJECTS = [
     ]
   },
 
-  {
-    title: "li family",
-    teaser: "instagram account sidequest with my friends",
-    year: "2026",
-    links: "https://www.instagram.com/theli_family/"
-    image: "",
-    article: [
-      {
-        heading: "the account",
-        text: "me and my friends go on sidequests a lot, whether that be notebook calls or coding projects, so we decided to create an instagram account to document all of it"
-      },
-      {
-        heading: "progress",
-        list: [
-          "07/30/2026 - created account and followed everyone in the friend group"
-        ]
-      },
-      
-    ]
-  },
-
-  {
-    title: "elenaOS",
-    teaser: "fully function operating system that works in the browser",
-    year: "2026",
-    image: "",
-    article: [
-      {
-        heading: "the code",
-        text: "i created this project for hackclub stardance as the original version of this website. it was coded using html/css and javascript and features numerous apps"
-      },
-      {
-        heading: "progress",
-        list: [
-          "07/30/2026 - created account and followed everyone in the friend group"
-        ]
-      },
-      
-    ]
-  },
+ 
 ]
 
 
