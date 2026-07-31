@@ -41,6 +41,7 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align:center;
     padding-left: 0;
     padding-right: 0;
     color: #efe9e1;
