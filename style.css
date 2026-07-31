@@ -72,7 +72,6 @@ hr {
   --bg:#efe9e1;
   --text:#322d29;
   --line:#d6cec3;
-  --radius:14px;
 }
 
 *{ box-sizing:border-box; }
@@ -81,32 +80,22 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  line-height:1.65;
 }
 
 .wrap{ max-width:820px; margin:0 auto; padding:64px 24px 100px; }
 
 /* ---------- Header ---------- */
-header h1{
-  font-size:2.4rem;
-  margin:0 0 8px;
-  letter-spacing:-.02em;
-  color:var(--text);
-}
-header p{
-  margin:0 0 40px;
-  max-width:56ch;
-  color:var(--text);
+header h1{ margin:0 0 8px; }
+header p{ margin:0 0 40px; }
+
+/* ---------- Project sections (rules, not boxes) ---------- */
+#list{
+  border-top:1px solid var(--line);
 }
 
-/* ---------- Project cards ---------- */
 .project{
-  border:1px solid var(--line);
-  background:var(--bg);
-  border-radius:var(--radius);
-  margin-bottom:14px;
-  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:none;
 }
 
 /* ---------- Collapsed teaser (the clickable header) ---------- */
@@ -115,45 +104,27 @@ header p{
   display:flex;
   align-items:flex-start;
   gap:16px;
-  padding:20px 22px;
+  padding:20px 0;
   background:none;
   border:0;
-  color:var(--text);
-  font-family:inherit;
-  text-align:left;
   cursor:pointer;
+
+  /* lets your theme's type through instead of the browser's button default */
+  font:inherit;
+  color:inherit;
+  text-align:left;
 }
 .head:focus-visible{ outline:2px solid var(--text); outline-offset:-2px; }
 
 .head-text{ flex:1; min-width:0; }
 
-.head h2{
-  margin:0;
-  font-size:1.08rem;
-  font-weight:650;
-  letter-spacing:-.01em;
-  color:var(--text);
-}
-.head .teaser{
-  margin:4px 0 0;
-  font-size:.9rem;
-  color:var(--text);
-}
-.head .year{
-  font-size:.75rem;
-  color:var(--text);
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:2px 8px;
-  white-space:nowrap;
-  margin-top:3px;
-}
+.head h2{ margin:0; }
+.head .teaser{ margin:4px 0 0; }
+.head .year{ white-space:nowrap; margin-top:3px; }
 
 .caret{
   flex:none;
   margin-top:4px;
-  font-size:.9rem;
-  color:var(--text);
   transition:transform .25s ease;
 }
 .project.open .caret{ transform:rotate(90deg); }
@@ -168,39 +139,18 @@ header p{
 
 .body-inner{ overflow:hidden; }
 
-.article{
-  padding:4px 22px 26px;
-  border-top:1px solid var(--line);
-  margin-top:2px;
-}
-.article > h3:first-child{ margin-top:16px; }
+.article{ padding:0 0 28px; }
 
-.article h3{
-  font-size:.78rem;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  margin:24px 0 8px;
-  color:var(--text);
-}
-.article p{
-  margin:0 0 12px;
-  font-size:.95rem;
-  color:var(--text);
-}
-.article ul{
-  margin:0 0 12px;
-  padding-left:20px;
-  font-size:.95rem;
-  color:var(--text);
-}
+.article h3{ margin:24px 0 8px; }
+.article > h3:first-child{ margin-top:4px; }
+.article p{ margin:0 0 12px; }
+.article ul{ margin:0 0 12px; padding-left:20px; }
 .article li{ margin-bottom:6px; }
 
 /* ---------- Images ---------- */
 .shot{
   width:100%;
   display:block;
-  border-radius:10px;
-  border:1px solid var(--line);
   margin:16px 0 4px;
 }
 
@@ -209,11 +159,8 @@ header p{
 
 .btn{
   text-decoration:none;
-  font-size:.85rem;
-  font-weight:600;
   padding:9px 16px;
-  border-radius:8px;
-  color:var(--text);
+  color:inherit;
   border:1px solid var(--line);
 }
 .btn.primary{ border-color:var(--text); }
@@ -221,7 +168,5 @@ header p{
 /* ---------- Responsive ---------- */
 @media (max-width:560px){
   .wrap{ padding:40px 18px 70px; }
-  header h1{ font-size:1.8rem; }
-  .head{ padding:17px 18px; }
-  .article{ padding:4px 18px 22px; }
+  .head{ padding:17px 0; }
 }
