@@ -16,7 +16,6 @@ const PROJECTS = [
     title: "Trail Conditions Tracker",
     teaser: "A crowd-sourced map showing which hiking trails are muddy, icy, or clear.",
     year: "2025",
-    tags: ["React", "Node", "Maps"],
     image: "",
     links: [
       { label: "Live site", url: "#", primary: true },
@@ -50,7 +49,6 @@ const PROJECTS = [
     title: "Course Conflict Resolver",
     teaser: "Scheduling tool that generates valid timetables from a student's course wishlist.",
     year: "2024",
-    tags: ["Python", "Algorithms"],
     image: "",
     links: [
       { label: "GitHub", url: "#", primary: true }
@@ -79,7 +77,6 @@ const PROJECTS = [
     title: "Ceramics Inventory for a Small Studio",
     teaser: "A no-frills stock and pricing sheet replacement built for a local pottery business.",
     year: "2024",
-    tags: ["Design", "Client work"],
     image: "",
     links: [
       { label: "Case study", url: "#", primary: true }
@@ -106,9 +103,7 @@ const PROJECTS = [
    BELOW THIS LINE IS THE ENGINE — no need to edit
    ============================================================ */
 
-const list      = document.getElementById('list');
-const filterBar = document.getElementById('filters');
-const emptyMsg  = document.getElementById('empty');
+const list = document.getElementById('list');
 
 /* Escape user text so stray < or & can't break the markup */
 function esc(s){
@@ -127,7 +122,7 @@ function sectionHTML(sec){
 function cardHTML(p, i){
   const id = `panel-${i}`;
   return `
-  <article class="project" data-tags="${p.tags.map(esc).join('|')}">
+  <article class="project">
     <button class="head" aria-expanded="false" aria-controls="${id}">
       <span class="caret">▶</span>
       <span class="head-text">
@@ -140,10 +135,6 @@ function cardHTML(p, i){
     <div class="body" id="${id}" role="region">
       <div class="body-inner">
         <div class="article">
-          <div class="tags">
-            ${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}
-          </div>
-
           ${p.image
             ? `<img class="shot" src="${esc(p.image)}" alt="${esc(p.title)} screenshot" loading="lazy">`
             : ''}
@@ -182,36 +173,4 @@ list.addEventListener('click', e => {
       other.querySelector('.head').setAttribute('aria-expanded', 'false');
     });
   }
-});
-
-/* ---------- Build filter chips from the tags you used ---------- */
-const allTags = ['All', ...new Set(PROJECTS.flatMap(p => p.tags))];
-
-filterBar.innerHTML = allTags.map((t, i) =>
-  `<button class="chip${i === 0 ? ' active' : ''}" data-tag="${esc(t)}">${esc(t)}</button>`
-).join('');
-
-filterBar.addEventListener('click', e => {
-  const chip = e.target.closest('.chip');
-  if (!chip) return;
-
-  filterBar.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  chip.classList.add('active');
-
-  const tag = chip.dataset.tag;
-  let visible = 0;
-
-  list.querySelectorAll('.project').forEach(card => {
-    const match = tag === 'All' || card.dataset.tags.split('|').includes(tag);
-    card.style.display = match ? '' : 'none';
-
-    if (match) {
-      visible++;
-    } else {
-      card.classList.remove('open');
-      card.querySelector('.head').setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  emptyMsg.style.display = visible ? 'none' : 'block';
 });
