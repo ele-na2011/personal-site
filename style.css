@@ -53,7 +53,7 @@ hr {
 }
 
 .nav-links a {
-    color: #cbd5e1;
+    color: #efe9e1;
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 0.75rem;
@@ -64,8 +64,8 @@ hr {
 /* Hover and active states for global navbar links */
 .nav-links a:hover, 
 .nav-links a.active-page {
-    color: #fff;
-    background-color: #322d29;
+    color: #322d29;
+    background-color: #efe9e1;
 }
 
 :root{
