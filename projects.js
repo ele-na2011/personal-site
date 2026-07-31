@@ -13,9 +13,9 @@
 
 const PROJECTS = [
   {
-    title: "Trail Conditions Tracker",
-    teaser: "A crowd-sourced map showing which hiking trails are muddy, icy, or clear.",
-    year: "2025",
+    title: "sidequest",
+    teaser: "nonprofit magazine specifically for teens & students",
+    year: "2026",
     image: "",
     links: [
       { label: "Live site", url: "#", primary: true },
@@ -23,80 +23,29 @@ const PROJECTS = [
     ],
     article: [
       {
-        heading: "The problem",
-        text: "Hikers near me constantly asked the same question in group chats: is the trail passable today? Official park pages update weekly at best, so the information was almost always stale by the time anyone needed it."
+        heading: "the problem",
+        text: "there are a LOT of opportunities out there for motivated students, but somehow only a select fraction of teens have access. in the US, there are numerous media outlets that keep track of and post about internships, scholarships, and more, while canadians seem to have...nothing"
       },
       {
-        heading: "What I built",
-        text: "A web app where users drop a pin, pick a condition from four presets, and optionally add a photo. Reports decay in opacity over 48 hours so the map always reflects recent reality rather than last month's snow."
+        heading: "the solution",
+        text: "a hub dedicated specifically for the youth of canada, complete with networking opportunities and chances to express their own opinions. available in the form of magazine, or online network"
       },
       {
-        heading: "Technical highlights",
+        heading: "progress",
         list: [
-          "Clustered map markers so 500+ reports stay readable at low zoom",
-          "Offline-first submissions queued in IndexedDB and synced when signal returns",
-          "Rate limiting and a lightweight trust score to curb spam reports"
+          "07/30/2026 - assembled full executive team"
         ]
       },
       {
-        heading: "What I learned",
-        text: "Designing for a user standing at a trailhead with one bar of signal forced me to treat performance as a feature, not a polish step. Every asset budget decision traced back to that scenario."
+        heading: "what i'm learning",
+        text: "running nonprofits are a lot of work, from organizing meetings to making sure 20 something executives all get along..."
       }
     ]
   },
 
-  {
-    title: "Course Conflict Resolver",
-    teaser: "Scheduling tool that generates valid timetables from a student's course wishlist.",
-    year: "2024",
-    image: "",
-    links: [
-      { label: "GitHub", url: "#", primary: true }
-    ],
-    article: [
-      {
-        heading: "The problem",
-        text: "Registration week meant an hour of dragging blocks around a grid to find a schedule with no overlaps and no 8 a.m. lectures. It was clearly a constraint-satisfaction problem being solved by hand."
-      },
-      {
-        heading: "Approach",
-        text: "I modelled each course section as a variable and each time slot as a domain value, then applied backtracking search with the minimum-remaining-values heuristic. Soft preferences like 'no early mornings' became a scoring pass over the valid solution set."
-      },
-      {
-        heading: "Results",
-        list: [
-          "Generates all valid timetables for a 6-course load in under 200 ms",
-          "Ranks results by user-weighted preferences (gaps, start time, campus travel)",
-          "Used by roughly 300 students in its first term"
-        ]
-      }
-    ]
-  },
+  
 
-  {
-    title: "Ceramics Inventory for a Small Studio",
-    teaser: "A no-frills stock and pricing sheet replacement built for a local pottery business.",
-    year: "2024",
-    image: "",
-    links: [
-      { label: "Case study", url: "#", primary: true }
-    ],
-    article: [
-      {
-        heading: "Context",
-        text: "A two-person studio was tracking 400 pieces across three spreadsheets that were never in sync. They did not need software so much as they needed one honest source of truth."
-      },
-      {
-        heading: "What I built",
-        text: "A single-page tool with a searchable inventory table, kiln-batch grouping, and a one-click price sheet export. Deliberately boring interface, because the owners wanted to spend zero minutes learning it."
-      },
-      {
-        heading: "Outcome",
-        text: "Stock reconciliation went from a Sunday afternoon task to about ten minutes. The best compliment I received was that they stopped mentioning the tool entirely."
-      }
-    ]
-  }
-];
+]
 
 
 /* ============================================================
