@@ -31,6 +31,21 @@ h1 {
     border-radius: 10px;
 }
 
+.contact {
+  display:grid;
+}
+
+.contact-links {
+  grid-column-start:auto;
+  grid-column-end:auto;
+} 
+
+.cat-punching {
+  grid-column-start:auto;
+  float: right;
+  width: 300px;
+}
+
 hr {
     color:#72383d;
     height: 3px;
