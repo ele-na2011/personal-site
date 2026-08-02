@@ -36,14 +36,15 @@ h1 {
 }
 
 .contact-links {
-  grid-column-start:auto;
-  grid-column-end:auto;
+  grid-column-start:1;
+  grid-column-end:2;
 } 
 
 .cat-punching {
-  grid-column-start:auto;
+  grid-column-start:3;
   float: right;
   width: 300px;
+  border-radius:10px
 }
 
 hr {
