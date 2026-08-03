@@ -2,6 +2,96 @@
 <html lang = "en">
     <head>
         <link rel = "stylesheet" href = "style.css">
+
+        <style>
+           :root {
+            --font: monospace, x-large;
+           }
+            .grid{
+  display:grid;
+  gap:18px;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+}
+
+.card{
+  border:2px solid #322d29;
+  border-radius:10px;
+  padding:22px;
+  text-align:left;
+  font-family:monospace;;
+  color:#322d29;
+  font-size: x-large;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:transform .25s cubic-bezier(.2,.8,.2,1), background .25s, border-color .25s, box-shadow .25s;
+}
+
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.card .meta{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;color:var(--muted)}
+.tag{border:1px solid var(--line);padding:2px 10px;border-radius:999px}
+.card h3{margin:0;font-size:1.12rem;letter-spacing:-.01em}
+.card .excerpt{margin:0;color:var(--muted);font-size:.92rem}
+.card .more{margin-top:auto;color:var(--accent);font-size:.85rem}
+
+/* ---- expanded overlay ---- */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(8,7,12,.72);
+  backdrop-filter:blur(6px);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:40px 18px;
+  overflow-y:auto;
+  z-index:50;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s;
+}
+.overlay.open{opacity:1;pointer-events:auto}
+
+.panel{
+  width:min(760px,100%);
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:38px 34px;
+  transform:translateY(18px) scale(.98);
+  opacity:0;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1), opacity .3s;
+}
+.overlay.open .panel{transform:none;opacity:1}
+
+.panel header{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.panel h2{margin:0;font-size:1.7rem;letter-spacing:-.02em}
+.panel .meta{color:var(--muted);font-size:.85rem;margin:6px 0 22px}
+.panel .body p{margin:0 0 16px}
+.panel .body ul{color:var(--muted);padding-left:20px}
+.panel .body code{background:var(--bg);padding:2px 6px;border-radius:6px;font-size:.88em}
+
+.close{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--muted);
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1rem;
+  flex-shrink:0;
+  transition:.2s;
+}
+.close:hover{border-color:var(--accent);color:var(--accent);transform:rotate(90deg)}
+
+template{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+        </style>
     </head>
 
     <body>
@@ -25,6 +115,40 @@
     <p>this is my devlog/journal, where i post some thoughts, as well as updates on projects and accomplishments</p>
 
     <p>feel free to also check out my <a href = "https://elenayang2011.substack.com/">substack</a> for more posts and articles</p>
+    <hr>
+    <div class="grid" id="grid">
+
+    <!-- ===== TEMPLATE CARD — duplicate this per entry ===== -->
+    <article class="card" data-title="first entry title"
+             data-date="08/01/2026" data-read="x min" tabindex="0" role="button">
+      <div class="meta"><span class="tag">tag</span><span>08/01/2026</span></div>
+      <h3>day 1 of sidequest</h3>
+      <p class="excerpt">starting a nonprofit is really an experience...</p>
+      <span class="more">read more →</span>
+      <template>
+        <p>today i ran the first meeting for my nonprofit organization; sidequest. it was great seeing so many students interested in leadership and working to make a difference. but it also got me thinking.
+        since when was making the world a better place so much the responsibility of youth, who are supposed to be enjoying the last years before they have to worry about incomes and taxes? it seems
+        like the world right now is running on a system: adults create problems, youth attempt to solve them. adults create climate change, youth work their butts off trying to reverse it. i dont believe we should
+        be handed everything on a silver platter, but i do believe that solving these problems should not be the entire responsibility of youth, under a title of initiative and getting into university. i believe that 
+        humanity's future is something everyone is responsible for, and youth should not be forced to give up their most innocent years to fix a world that is already broken beyond repair.</p>
+      </template>
+    </article>
+
+    </div>
+    </div>
+
+    <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+        <div class="panel">
+            <header>
+                <h2 id="panelTitle"></h2>
+                <button class="close" id="close" aria-label="close">✕</button>
+            </header>
+            <div class="meta" id="panelMeta"></div>
+            <div class="body" id="panelBody"></div>
+            </div>
+            </div>
+
+    <script src="blog.js"></script>
     <hr>
     <h2>starting a nonprofit</h2>
     <h3>august 1st, 2026</h3>
