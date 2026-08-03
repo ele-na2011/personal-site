@@ -29,7 +29,8 @@ const PROJECTS = [
       {
         heading: "progress",
         list: [
-          "07/30/2026 - assembled full executive team"
+          "07/30/2026 - assembled full executive team",
+          "08/01/2026 - first full executive meeting"
         ]
       },
       {
@@ -39,7 +40,54 @@ const PROJECTS = [
     ]
   },
 
-  
+  {
+    title: "nasa APOD viewer",
+    teaser: "view daily astronomy photos straight from NASA",
+    year: "2026",
+    image: "",
+    article: [
+      {
+        heading: "the context",
+        text: "i made this project for hackclub stardance, but basically it just uses an api from nasa to fetch daily astronomy photos, as well as descriptions."
+      },
+      {
+        heading: "progress",
+        list: [
+          "08/02/2026 - set up vite, javascript, and initial html/css, as well as api fetch"
+        ]
+      },
+      {
+        heading: "what i'm learning",
+        text: "this is my first time using vite, and it's really fun to use! i also learned how to store github secrets and use gitignore to hide apis from the public"
+      }
+    ]
+   },
+
+   {
+    title: "elenaOS",
+    teaser: "operating system that works straight in the browser",
+    year: "2026",
+    image: "",
+    article: [
+      {
+        heading: "the context",
+        text:"another hackclub stardance project, this one is a bit harder to make. basically its an operating system (similar to macOS or linux) that contains apps but this one runs in the browser"
+      },
+      {
+        heading: "progress",
+        list: [
+          "06/24/2026 - set up basic html and css files, as well as a basic time tracker using javascript",
+          "06/25/2026 - added a basic calculator app, as well as a basic text editor app",
+          "06/26/2026 - added a basic music player app, as well as a basic image viewer app"
+        ]
+      },
+      {
+        heading: "what i'm learning",
+        text: "this is my first time building an operating system, and it's really challenging! i also learned how to manage state and handle user interactions in a web-based environment"
+      }
+    ]
+
+  },
 ]
 
 
