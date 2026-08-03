@@ -44,7 +44,7 @@ const PROJECTS = [
     title: "nasa APOD viewer",
     teaser: "view daily astronomy photos straight from NASA",
     year: "2026",
-    image: "Screenshot 2026-08-02 at 11.30.47 PM.png",
+    image: "nasa.apod.png ",
     article: [
       {
         heading: "the context",
