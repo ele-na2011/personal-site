@@ -41,6 +41,31 @@ const PROJECTS = [
   },
 
   {
+    title: "download watcher",
+    teaser: "program that watches your downloads folder, assigns names to files, and moves them to the correct place",
+    year: "2026",
+    image: "",
+    article: [
+      {
+        heading: "the problem",
+        text: "when you download stuff on the internet, sometimes the file names are not very descriptive, and you have to manually rename them and move them to a spot where you can find them later. this costs time and organization and i want to make this process more efficient"
+      },
+      {
+        heading: "the solution",
+        text: "a program that watches your downloads folder, scans content to assign names to files, and moves them to the correct place for better organization"
+      },
+      {
+        heading: "progress",
+        list: [
+          "check back later for updates"
+        ]
+      },
+      {
+        heading: "what i'm learning",
+        text: "check back later for updates"}
+    ]
+  },
+  {
     title: "nasa APOD viewer",
     teaser: "view daily astronomy photos straight from NASA",
     year: "2026",
