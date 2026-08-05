@@ -57,7 +57,7 @@ const PROJECTS = [
       {
         heading: "progress",
         list: [
-          "check back later for updates"
+          "08/04/2026 - set up basic programming environment with python"
         ]
       },
       {
