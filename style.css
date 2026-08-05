@@ -51,11 +51,18 @@ hr {
     color: #efe9e1;
 }
 
+.nav-system {
+    flex: 1; /* fills the header since it's the direct flex child */
+    display: flex;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
     gap: 0.5rem;
-    width: 100%; /* lets the list stretch across the header so the auto-margin has room to work */
+    flex: 1; /* fills the nav-system wrapper */
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li:first-child {
@@ -71,12 +78,12 @@ hr {
     transition: background 0.2s, color 0.2s;
 }
 
-/* Hover and active states for global navbar links */
 .nav-links a:hover, 
 .nav-links a.active-page {
     color: #322d29;
     background-color: #efe9e1;
 }
+
 
 
 footer {
@@ -87,6 +94,7 @@ footer {
   padding-bottom:40px;
   padding-left: 10px;
   padding-right: 10px;
+  margin-top: 20px;
 }
 
 footer a {
@@ -99,6 +107,7 @@ footer a:hover {
   text-decoration:none;
   border-radius: 4px;
 }
+
 
 :root{
   --bg:#efe9e1;
