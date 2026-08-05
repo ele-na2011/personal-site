@@ -58,6 +58,10 @@ hr {
     gap: 0.5rem;
 }
 
+.nav-links li:first-child {
+    margin-right: auto;
+}
+
 .nav-links a {
     color: #efe9e1;
     text-decoration: none;
