@@ -45,7 +45,7 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-align:center;
+    text-align: center;
     padding-left: 0;
     padding-right: 0;
     color: #efe9e1;
@@ -55,6 +55,7 @@ hr {
     display: flex;
     list-style: none;
     gap: 0.5rem;
+    width: 100%; /* lets the list stretch across the header so the auto-margin has room to work */
 }
 
 .nav-links li:first-child {
@@ -76,6 +77,7 @@ hr {
     color: #322d29;
     background-color: #efe9e1;
 }
+
 
 footer {
   text-align: center;
