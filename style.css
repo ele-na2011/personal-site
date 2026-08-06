@@ -1,14 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     text-align: left;
-    align-items: center;
-    justify-content: center;
-    font-size:x-large;
     color: #322d29;
     background-color: #efe9e1;
+    font-family: monospace;
+    font-size: clamp(1rem, 1.8vw + 0.4rem, 1.25rem);
     padding-left: 20%;
     padding-right: 20%;
-    font-family:monospace;
-    
+    margin: 0;
+}
+
+.site-header {
+    background-color: #72383d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    color: #efe9e1;
+    position: relative;
+}
+
+.nav-system {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li:first-child {
+    margin-right: auto;
+}
+
+.nav-links a {
+    color: #efe9e1;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active-page {
+    color: #322d29;
+    background-color: #efe9e1;
+}
+
+/* Hamburger button - hidden by default (desktop) */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 20;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #efe9e1;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hamburger turns into an X when open */
+.nav-toggle.open span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* ---------- TABLET ---------- */
+@media (max-width: 900px) {
+    body {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 640px) {
+    body {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #72383d;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        
+    }
+
+    .nav-links.open {
+        max-height: 400px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li:first-child {
+        margin-right: 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.9rem 1.5rem;
+        border-radius: 0;
+    }
 }
 
 a {
@@ -41,51 +177,6 @@ hr {
     height: 3px;
 }
 
-.site-header {
-    background-color: #72383d;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top:20px;
-    padding-bottom:20px;
-    color: #efe9e1;
-}
-
-.nav-system {
-    flex: 1; /* fills the header since it's the direct flex child */
-    display: flex;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 0.5rem;
-    flex: 1; /* fills the nav-system wrapper */
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li:first-child {
-    margin-right: auto;
-}
-
-.nav-links a {
-    color: #efe9e1;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-    transition: background 0.2s, color 0.2s;
-}
-
-.nav-links a:hover, 
-.nav-links a.active-page {
-    color: #322d29;
-    background-color: #efe9e1;
-}
 
 
 
@@ -102,6 +193,7 @@ footer {
 
 footer a {
   color:#efe9e1;
+  transition: background 0.2s, color 0.2s;
 }
 
 footer a:hover {
@@ -111,6 +203,24 @@ footer a:hover {
   border-radius: 4px;
 }
 
+.achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.achievements ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  grid-column: span 1;
+}
+
+.achievements img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  border:#72383d 3px solid;
+  grid-column: span 1;
+}
 
 :root{
   --bg:#efe9e1;
