@@ -1,18 +1,19 @@
 # personal site!!
 
-this is a simple first draft of a personal site i will be using to document my personal development
+this is an updated version of a website that's all about me!
 
----
 ## features
-+ custom css
++ custom css & color theme
 + some basic info about me
-+ links
++ links (resume, media accounts, etc etc.)
++ favicon
++ nav system
++ optimized for different screens (there is a certain point where it looks squished)
++ interactive blog and project pages
 
 ## future features
-+ nav system
-+ project demo carousels
-+ blog
-
----
++ more graphics
++ actual project demos
+  
 ## credits
 + google - for all the searches
