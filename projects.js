@@ -41,6 +41,30 @@ const PROJECTS = [
   },
 
   {
+    title: "hackpad for school",
+    teaser: "a macropad that allows me to be more efficient and happy in school",
+    year: "2026",
+    image: "",
+    article: [
+      {
+        heading: "the context",
+        text:"this is a stardance project, and i wanted to make something that would make school life a bit less torturous. thus, i decided to make a macropad that has 3 modes just to make my school life better."
+      },
+      {
+        heading: "progress",
+        list: [
+          "08/05/2026 - set up development environment for kicad",
+          "08/06/2026 - created initial schematics in kicad"
+        ]
+      },
+      {
+        heading: "what i'm learning",
+        text: "through this project, i'm learning how to use kicad and fusion360 (a bit farther along the line) to create something that's genuinely useful"
+      }
+    ]
+  },
+
+  {
     title: "download watcher",
     teaser: "program that watches your downloads folder, assigns names to files, and moves them to the correct place",
     year: "2026",
