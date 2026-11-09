@@ -17,6 +17,9 @@ const PROJECTS = [
     teaser: "nonprofit magazine specifically for teens & students",
     year: "2026",
     image: "",
+    links: [
+      // { label: "live demo", url: "https://example.com", primary: true },
+    ],
     article: [
       {
         heading: "the problem",
@@ -40,7 +43,85 @@ const PROJECTS = [
     ]
   },
 
-  
+   {
+    title: "inkless (hack the valley 11)",
+    teaser: "write on anything :))",
+    year: "2026",
+    image: "",
+    links: [
+      { label: "demo", url: "https://i-want-a-drawing-tablet-but-im-brok-two.vercel.app/", primary: true },
+      { label: "devpost", url: "https://devpost.com/software/inkless-9fauve"},
+      { label: "github repo", url: "https://github.com/ele-na2011/i-want-a-drawing-tablet-but-im-broke"}
+    ],
+    article: [
+      {
+        heading: "the problem",
+        text: "i've always wanted a drawing tablet, but they're expensive. so my team and i came up with inkless, a computer vision-based drawing app that tracks a green LED to track your hand movements in order to save your writing on any surface to a doc, which you can export to your google drive."
+      },
+      {
+        heading: "stack",
+        text: "python, yolov8, html/css/js"
+      },
+      {
+        heading: "progress",
+        list: [
+          "10/16/2026 - environment setup done",
+          "10/17/2026 - ui designed, stack decided",
+          "10/18/2026 - yolov8 model trained, testing and debugging",
+          "10/18/2026 - final touches, devpost submission"
+        ]
+      },
+    ]
+  },
+
+   {
+    title: "daydream village (sunbeam toronto)",
+    teaser: "collaborate with others to create the perfect little town",
+    year: "2026",
+    image: "",
+    links: [
+      { label: "demo", url: "https://ele-na2011.github.io/perfect-day/", primary: true },
+      { label: "github repo", url: "https://github.com/ele-na2011/perfect-day" }
+    ],
+    article: [
+      {
+        heading: "theme and idea",
+        text: "the theme was 'perfect day', and our team decided to create a little town where people collaborated across the internet to provide the perfect day through certain actions"
+      },
+      {
+        heading: "progress",
+        list: [
+          "08/23/2026 - coded the entire game in 1 day, with a team of 3"
+        ]
+      },
+    ]
+  },
+
+   {
+    title: "mythicalOS (stardance)",
+    teaser: "mythical-themed web operating system",
+    year: "2026",
+    image: "",
+    links: [
+      // { label: "live demo", url: "https://example.com", primary: true },
+    ],
+    article: [
+      {
+        heading: "what it is",
+        text: "a mythical-themed web operating system, with a desktop, taskbar, numerous apps, as well as a hidden easter egg feature."
+      },
+      {
+        heading: "progress",
+        list: [
+          "06/25/2026 - started the project",
+          "06/30/2026 - ship #1, also known as elenaOS was published",
+          "08/20/2026 - rebrand to mythicalOS, with a new theme and new features",
+          "09/15/2026 - added new features and improvements"
+        ]
+      },
+      
+    ]
+  },
 ]
 
 
