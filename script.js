@@ -1,5 +1,7 @@
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
+const SUPABASE_URL = 'https://omdeuvzwkqikxxjsgtsy.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_VuZ2OfHVgfJG9eCrRJmDow_D_xj4h99';
 
 navToggle?.addEventListener('click', () => {
     if (!navLinks) return;
@@ -158,3 +160,121 @@ const dynamicContentObserver = new MutationObserver(records => {
 });
 
 dynamicContentObserver.observe(document.body, { childList: true, subtree: true });
+
+const guestbookForm = document.getElementById('guestbookForm');
+const guestbookMessages = document.getElementById('guestbookMessages');
+const guestbookStatus = document.getElementById('guestbookStatus');
+const guestbookConfigured = !SUPABASE_URL.startsWith('YOUR_') &&
+    !SUPABASE_ANON_KEY.startsWith('YOUR_');
+
+function setGuestbookStatus(message, isError = false) {
+    if (!guestbookStatus) return;
+    guestbookStatus.textContent = message;
+    guestbookStatus.classList.toggle('error', isError);
+}
+
+async function supabaseRequest(path, options = {}) {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
+        ...options,
+        headers: {
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            ...(options.headers || {})
+        }
+    });
+
+    if (!response.ok) {
+        const details = await response.text();
+        throw new Error(details || `Request failed with status ${response.status}`);
+    }
+
+    return response.status === 204 ? null : response.json();
+}
+
+function renderGuestbookMessages(messages) {
+    if (!guestbookMessages) return;
+    guestbookMessages.replaceChildren();
+
+    if (!messages.length) {
+        const emptyMessage = document.createElement('p');
+        emptyMessage.textContent = 'be the first to sign it!';
+        guestbookMessages.append(emptyMessage);
+        return;
+    }
+
+    messages.forEach(message => {
+        const card = document.createElement('article');
+        card.className = 'guestbook-message';
+
+        const name = document.createElement('h4');
+        name.textContent = message.name;
+        const body = document.createElement('p');
+        body.textContent = message.message;
+        const date = document.createElement('time');
+        date.dateTime = message.created_at;
+        date.textContent = new Date(message.created_at).toLocaleDateString();
+
+        card.append(name, body, date);
+        guestbookMessages.append(card);
+    });
+}
+
+async function loadGuestbookMessages() {
+    if (!guestbookMessages) return;
+    if (!guestbookConfigured) {
+        guestbookMessages.replaceChildren();
+        const setupMessage = document.createElement('p');
+        setupMessage.textContent = 'guestbook setup is not complete yet.';
+        guestbookMessages.append(setupMessage);
+        return;
+    }
+
+    try {
+        const messages = await supabaseRequest(
+            'guestbook_messages?select=name,message,created_at&order=created_at.desc&limit=50'
+        );
+        renderGuestbookMessages(messages);
+    } catch (error) {
+        console.error('Unable to load guestbook messages:', error);
+        guestbookMessages.replaceChildren();
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = 'messages could not be loaded right now.';
+        guestbookMessages.append(errorMessage);
+    }
+}
+
+guestbookForm?.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!guestbookConfigured) {
+        setGuestbookStatus('the guestbook is not configured yet.', true);
+        return;
+    }
+
+    const formData = new FormData(guestbookForm);
+    const name = String(formData.get('name') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+    if (formData.get('website') || !name || !message) return;
+
+    const submitButton = guestbookForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    setGuestbookStatus('posting...');
+
+    try {
+        await supabaseRequest('guestbook_messages', {
+            method: 'POST',
+            headers: { Prefer: 'return=minimal' },
+            body: JSON.stringify({ name, message })
+        });
+        guestbookForm.reset();
+        setGuestbookStatus('your message is on the wall!');
+        await loadGuestbookMessages();
+    } catch (error) {
+        console.error('Unable to post guestbook message:', error);
+        setGuestbookStatus('that message could not be posted. please try again.', true);
+    } finally {
+        submitButton.disabled = false;
+    }
+});
+
+loadGuestbookMessages();
