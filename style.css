@@ -306,6 +306,7 @@ footer a {
 
 .guestbook-messages{
   display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
   gap:1rem;
   margin-top:2rem;
   max-height:420px;
@@ -317,93 +318,26 @@ footer a {
 }
 
 .guestbook-message{
-  position:relative;
-  min-height:155px;
-  perspective:900px;
-  background:var(--accent);
-  clip-path:polygon(
-    50% 0%, 61% 21%, 82% 10%, 79% 33%, 100% 42%,
-    80% 54%, 88% 78%, 64% 73%, 50% 100%, 36% 73%,
-    12% 78%, 20% 54%, 0% 42%, 21% 33%, 18% 10%, 39% 21%
-  );
-  animation:guestbook-message-in .55s cubic-bezier(.2,.8,.2,1) both;
-}
-
-.guestbook-message-inner{
-  position:absolute;
-  inset:8px;
-  min-height:139px;
-  transform-style:preserve-3d;
-  transition:transform .65s cubic-bezier(.2,.8,.2,1);
-}
-
-.guestbook-message:hover .guestbook-message-inner,
-.guestbook-message:focus-visible .guestbook-message-inner{
-  transform:rotateY(180deg);
-}
-
-.guestbook-message-front,
-.guestbook-message-back{
-  position:absolute;
-  inset:0;
+  min-height:150px;
   display:flex;
-  align-items:center;
+  flex-direction:column;
   justify-content:center;
   padding:1rem;
   color:var(--accent);
   background:var(--bg);
-  clip-path:polygon(
-    50% 0%, 61% 21%, 82% 10%, 79% 33%, 100% 42%,
-    80% 54%, 88% 78%, 64% 73%, 50% 100%, 36% 73%,
-    12% 78%, 20% 54%, 0% 42%, 21% 33%, 18% 10%, 39% 21%
-  );
-  backface-visibility:hidden;
+  border:2px solid var(--accent);
+  box-shadow:3px 3px 0 rgba(114,56,61,.16);
 }
 
-.guestbook-message-back{
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:center;
-  transform:rotateY(180deg);
-}
-
-.guestbook-message:nth-child(2){
-  animation-delay:.08s;
-  transform:rotate(1.5deg);
-}
-
-.guestbook-message:nth-child(3){
-  animation-delay:.16s;
-  transform:rotate(-1.25deg);
-}
-
-.guestbook-message:nth-child(4){
-  animation-delay:.24s;
-  transform:rotate(1deg);
-}
-
-.guestbook-message:nth-child(5){
-  animation-delay:.32s;
-  transform:rotate(-1.75deg);
-}
-
-@keyframes guestbook-message-in{
-  from{
-    opacity:0;
-  }
-  to{
-    opacity:1;
-  }
+.guestbook-message h4{
+  color:var(--accent);
+  overflow-wrap:anywhere;
 }
 
 .guestbook-message h4,
 .guestbook-message p,
 .guestbook-message time{
   margin:0;
-}
-
-.guestbook-message h4{
-  color:var(--accent);
 }
 
 .guestbook-message p{
@@ -413,16 +347,6 @@ footer a {
 .guestbook-message time{
   font-size:.75em;
   opacity:.75;
-}
-
-@media (prefers-reduced-motion:reduce){
-  .guestbook-message{
-    animation:none;
-  }
-
-  .guestbook-message-inner{
-    transition:none;
-  }
 }
 
 footer a:hover {
