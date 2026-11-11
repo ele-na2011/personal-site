@@ -90,6 +90,89 @@
 
 template{display:none}
 
+/* Small denim details against the wine-red theme */
+.grid{
+  position:relative;
+  padding-top:12px;
+}
+
+.grid::before{
+  content:"click any card to read my amazing thoughts that are super duper important trust trust i'm definitely becoming a writer (the larping paradox: the more you larp the less you larp)";
+  display:flex;
+  min-height:180px;
+  padding:22px;
+  border:2px dashed var(--denim);
+  color:var(--accent);
+  background:rgba(49,93,136,.08);
+  font-size:1rem;
+  letter-spacing:.05em;
+  line-height:1.5;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+  text-shadow:1px 1px 0 rgba(49,93,136,.25);
+}
+
+.card{
+  position:relative;
+  border-color:var(--accent);
+  border-radius:4px;
+  background:
+    linear-gradient(135deg, rgba(49,93,136,.08), transparent 42%),
+    var(--bg);
+  box-shadow:5px 5px 0 rgba(49,93,136,.2);
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:7px;
+  pointer-events:none;
+  border:1px dashed rgba(49,93,136,.34);
+  border-radius:2px;
+}
+
+.card:hover{
+  border-color:var(--denim);
+  box-shadow:7px 7px 0 rgba(49,93,136,.28);
+}
+
+.card .meta{
+  color:var(--accent);
+}
+
+.tag{
+  border-color:var(--denim);
+  color:var(--denim);
+  background:rgba(49,93,136,.08);
+}
+
+.card h3{
+  color:var(--accent);
+}
+
+.card .more{
+  color:var(--denim);
+}
+
+.panel{
+  border-color:var(--denim);
+  box-shadow:8px 8px 0 rgba(49,93,136,.3);
+}
+
+.panel h2{
+  border-bottom-color:var(--stitch);
+}
+
+.close{
+  border-color:var(--denim);
+}
+
+.close:hover{
+  color:var(--denim-light);
+  border-color:var(--denim-light);
+}
+
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
 }
