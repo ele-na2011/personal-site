@@ -206,16 +206,28 @@ function renderGuestbookMessages(messages) {
     messages.forEach(message => {
         const card = document.createElement('article');
         card.className = 'guestbook-message';
+        card.tabIndex = 0;
 
+        const inner = document.createElement('div');
+        inner.className = 'guestbook-message-inner';
+
+        const front = document.createElement('div');
+        front.className = 'guestbook-message-front';
         const name = document.createElement('h4');
         name.textContent = message.name;
+
+        const back = document.createElement('div');
+        back.className = 'guestbook-message-back';
         const body = document.createElement('p');
         body.textContent = message.message;
         const date = document.createElement('time');
         date.dateTime = message.created_at;
         date.textContent = new Date(message.created_at).toLocaleDateString();
 
-        card.append(name, body, date);
+        front.append(name);
+        back.append(body, date);
+        inner.append(front, back);
+        card.append(inner);
         guestbookMessages.append(card);
     });
 }

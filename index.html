@@ -50,6 +50,9 @@
             <div class="guestbook-inner">
                 <h3 id="guestbook-title">sign the guestbook</h3>
                 <p>leave your mark and say hi to everyone who visits after you.</p>
+                <div id="guestbookMessages" class="guestbook-messages" aria-live="polite">
+                    <p>loading messages...</p>
+                </div>
                 <form id="guestbookForm" class="guestbook-form">
                     <label for="guestbookName">name</label>
                     <input id="guestbookName" name="name" type="text" maxlength="60" required autocomplete="name">
@@ -65,9 +68,6 @@
                     <button type="submit">post message</button>
                     <p id="guestbookStatus" class="guestbook-status" role="status" aria-live="polite"></p>
                 </form>
-                <div id="guestbookMessages" class="guestbook-messages" aria-live="polite">
-                    <p>loading messages...</p>
-                </div>
             </div>
         </section>
         
