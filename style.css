@@ -515,6 +515,81 @@ header p{ margin:0 0 40px; }
 }
 .btn.primary{ border-color:var(--text); }
 
+/* Wine-red streetwear typography */
+.site-header{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.1), transparent 35%),
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(255,255,255,.045) 6px 7px),
+    var(--accent);
+  border-bottom:4px solid var(--accent);
+  box-shadow:0 5px 0 rgba(114,56,61,.16);
+}
+
+.nav-links a{
+  border:1px solid transparent;
+  letter-spacing:.03em;
+}
+
+.nav-links a:hover,
+.nav-links a.active-page{
+  color:var(--text);
+  background:var(--bg);
+  border-color:var(--accent);
+}
+
+h1,
+h2,
+h3{
+  color:var(--accent);
+  letter-spacing:.03em;
+  text-transform:lowercase;
+}
+
+h1{
+  text-shadow:2px 2px 0 rgba(114,56,61,.2);
+}
+
+h2{
+  display:table;
+  margin-left:auto;
+  margin-right:auto;
+  padding:0 .45em .2em;
+  border-bottom:2px dashed var(--accent);
+}
+
+a{
+  color:var(--accent);
+  text-decoration-thickness:2px;
+  text-underline-offset:3px;
+}
+
+.image{
+  border-color:var(--accent);
+  box-shadow:6px 6px 0 rgba(114,56,61,.24);
+  filter:saturate(.88) contrast(1.04);
+}
+
+hr{
+  background:linear-gradient(90deg, transparent, var(--accent) 18%, var(--accent) 82%, transparent);
+}
+
+hr::before,
+hr::after{
+  border-color:var(--accent);
+  background:var(--bg);
+}
+
+footer{
+  background:
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(255,255,255,.045) 6px 7px),
+    var(--accent);
+  border-top:4px solid var(--accent);
+}
+
+footer a{
+  color:var(--bg);
+}
+
 /* ---------- Responsive ---------- */
 .inspiration-section h2{
   text-align:center;
