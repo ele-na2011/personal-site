@@ -238,7 +238,7 @@ async function loadGuestbookMessages() {
         console.error('Unable to load guestbook messages:', error);
         guestbookMessages.replaceChildren();
         const errorMessage = document.createElement('p');
-        errorMessage.textContent = 'messages could not be loaded right now.';
+        errorMessage.textContent = 'please refresh the page';
         guestbookMessages.append(errorMessage);
     }
 }
@@ -270,7 +270,7 @@ guestbookForm?.addEventListener('submit', async event => {
         await loadGuestbookMessages();
     } catch (error) {
         console.error('Unable to post guestbook message:', error);
-        setGuestbookStatus('that message could not be posted. please try again.', true);
+        setGuestbookStatus('please refresh the page', true);
     } finally {
         submitButton.disabled = false;
     }
