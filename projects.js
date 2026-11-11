@@ -103,7 +103,8 @@ const PROJECTS = [
     year: "2026",
     image: "",
     links: [
-      // { label: "live demo", url: "https://example.com", primary: true },
+      { label: "demo", url: "https://ele-na2011.github.io/mythicalOS/", primary: true },
+      { label: "github repo", url: "https://github.com/ele-na2011/mythicalOS" }
     ],
     article: [
       {
