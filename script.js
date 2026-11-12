@@ -127,6 +127,7 @@ if ('IntersectionObserver' in window && !reducedMotion) {
     }, { threshold: 0.1 });
 
     typewriterTargets.forEach(target => revealObserver.observe(target));
+    motionTargets.forEach(target => revealObserver.observe(target));
 } else {
     typewriterTargets.forEach(target => {
         target.classList.add('is-visible');

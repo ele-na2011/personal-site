@@ -11,6 +11,7 @@ body {
     padding-left: 20%;
     padding-right: 20%;
     margin: 0;
+    overflow-x: hidden;
 }
 
 .site-header {
@@ -51,6 +52,11 @@ body {
     border-radius: 4px;
     transition: background 0.2s, color 0.2s;
     white-space: nowrap;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .nav-links a:hover,
@@ -225,6 +231,10 @@ footer {
 footer a {
   color:#efe9e1;
   transition: background 0.2s, color 0.2s;
+}
+
+footer p {
+  overflow-wrap: anywhere;
 }
 
 .guestbook{
@@ -657,6 +667,10 @@ a{
   margin-top:0;
 }
 
+.about-section--text-only .about-section-content{
+  grid-column:1 / -1;
+}
+
 .about-placeholder{
   min-height:220px;
   display:grid;
@@ -784,6 +798,81 @@ body.motion-ready > .inspiration-section{
   .inspiration-entry{
     grid-template-columns:100px minmax(0, 1fr);
     gap:1rem;
+  }
+}
+
+@media (max-width:640px){
+  .site-header{
+    padding:14px 16px;
+  }
+
+  h1{
+    font-size:clamp(1.6rem, 8vw, 2.2rem);
+  }
+
+  h2{
+    max-width:100%;
+    font-size:clamp(1.25rem, 6vw, 1.7rem);
+    text-align:center;
+  }
+
+  .image{
+    width:100%;
+  }
+
+  .guestbook-inner{
+    padding:1.25rem;
+  }
+
+  .guestbook-form{
+    padding:1rem;
+  }
+
+  .guestbook-form button{
+    width:100%;
+  }
+
+  .guestbook-messages{
+    grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:17px;
+    font-size:1rem;
+  }
+
+  .card .meta{
+    flex-wrap:wrap;
+  }
+
+  .overlay{
+    padding:16px 10px;
+  }
+
+  .panel{
+    padding:24px 18px;
+    border-radius:12px;
+  }
+
+  .panel h2{
+    font-size:1.35rem;
+  }
+
+  .links{
+    flex-direction:column;
+  }
+
+  .btn{
+    text-align:center;
+  }
+
+  footer{
+    padding-left:16px;
+    padding-right:16px;
   }
 }
 
