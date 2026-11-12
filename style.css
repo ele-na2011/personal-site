@@ -22,6 +22,7 @@ body {
     padding: 20px 30px;
     color: #efe9e1;
     position: relative;
+    z-index: 20;
 }
 
 .nav-system {
@@ -131,6 +132,7 @@ img {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
+        z-index: 30;
         
     }
 
@@ -636,15 +638,13 @@ a{
 }
 
 .about-intro{
-  display:grid;
-  grid-template-columns:minmax(0, 1fr) minmax(220px, .8fr);
-  gap:2rem;
-  align-items:center;
+  display:block;
 }
 
 .about-intro .image{
-  width:100%;
-  margin:0;
+  width:50%;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .about-section{
