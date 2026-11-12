@@ -206,6 +206,15 @@ function renderGuestbookMessages(messages) {
     messages.forEach(message => {
         const card = document.createElement('article');
         card.className = 'guestbook-message';
+        card.tabIndex = 0;
+        card.setAttribute('aria-label', `Message from ${message.name}`);
+
+        const cardInner = document.createElement('div');
+        cardInner.className = 'guestbook-message-inner';
+        const front = document.createElement('div');
+        front.className = 'guestbook-message-front';
+        const back = document.createElement('div');
+        back.className = 'guestbook-message-back';
         const name = document.createElement('h4');
         name.textContent = message.name;
         const body = document.createElement('p');
@@ -214,10 +223,26 @@ function renderGuestbookMessages(messages) {
         date.dateTime = message.created_at;
         date.textContent = new Date(message.created_at).toLocaleDateString();
 
-        card.append(name, body, date);
+        front.append(name, date);
+        back.append(body);
+        cardInner.append(front, back);
+        card.append(cardInner);
         guestbookMessages.append(card);
     });
 }
+
+guestbookMessages?.addEventListener('click', event => {
+    const card = event.target.closest('.guestbook-message');
+    if (card) card.classList.toggle('is-flipped');
+});
+
+guestbookMessages?.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    const card = event.target.closest('.guestbook-message');
+    if (!card) return;
+    event.preventDefault();
+    card.classList.toggle('is-flipped');
+});
 
 async function loadGuestbookMessages() {
     if (!guestbookMessages) return;
