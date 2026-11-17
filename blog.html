@@ -175,6 +175,218 @@ template{display:none}
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
 }
+
+/* Notebook presentation */
+.notebook-scene{
+  margin:2rem 0 3rem;
+  perspective:1400px;
+}
+
+.notebook{
+  position:relative;
+  min-height:520px;
+  transform-style:preserve-3d;
+}
+
+.notebook-pages{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:520px;
+  padding:34px clamp(22px, 5vw, 64px);
+  overflow:hidden;
+  border:2px solid var(--line);
+  border-radius:4px 14px 14px 4px;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 2.2rem, rgba(114,56,61,.12) 2.25rem 2.3rem),
+    #fbf8f2;
+  box-shadow:10px 10px 0 rgba(114,56,61,.2);
+  transform-style:preserve-3d;
+}
+
+.notebook-pages::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 28px;
+  width:2px;
+  background:rgba(114,56,61,.25);
+}
+
+.notebook-cover{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  border:2px solid var(--accent);
+  border-radius:4px 14px 14px 4px;
+  color:var(--bg);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 7px, rgba(255,255,255,.05) 8px 9px),
+    var(--accent);
+  box-shadow:10px 10px 0 rgba(114,56,61,.28);
+  transform-origin:left center;
+  transition:transform 1s cubic-bezier(.2,.8,.2,1), opacity .4s ease;
+  backface-visibility:hidden;
+}
+
+.notebook-cover strong{
+  font-size:clamp(1.7rem, 5vw, 3rem);
+  letter-spacing:.08em;
+  text-transform:lowercase;
+}
+
+.notebook-cover span{
+  border:1px dashed var(--bg);
+  padding:.55rem 1rem;
+  letter-spacing:.08em;
+  text-transform:lowercase;
+}
+
+.notebook.open .notebook-cover{
+  transform:rotateY(-108deg);
+  pointer-events:none;
+}
+
+.notebook .grid{
+  display:block;
+  flex:1;
+  padding:0 0 0 1rem;
+}
+
+.notebook .grid::before{
+  display:none;
+}
+
+.notebook .card{
+  border:0;
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  padding:1.6rem 0;
+  background:transparent;
+  box-shadow:none;
+  font-size:1rem;
+}
+
+.notebook .card::after{
+  display:none;
+}
+
+.notebook .card:hover{
+  transform:translateX(6px);
+  box-shadow:none;
+}
+
+.notebook .card:last-child{
+  border-bottom:0;
+}
+
+.notebook-controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.25rem;
+  flex-shrink:0;
+  margin-top:auto;
+  padding-top:1.25rem;
+  color:var(--accent);
+}
+
+.notebook-arrow{
+  width:2.5rem;
+  height:2.5rem;
+  border:1px solid var(--accent);
+  border-radius:50%;
+  color:var(--accent);
+  background:transparent;
+  cursor:pointer;
+  font:inherit;
+  font-size:1.25rem;
+  transition:background .2s, color .2s, transform .2s;
+}
+
+.notebook-arrow:hover:not(:disabled){
+  color:var(--bg);
+  background:var(--accent);
+  transform:scale(1.08);
+}
+
+.notebook-arrow:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+
+.notebook-arrow:disabled{
+  cursor:not-allowed;
+  opacity:.35;
+}
+
+.notebook .card[hidden]{
+  display:none;
+}
+
+.notebook-pages.is-turning-next .grid,
+.notebook-pages.is-turning-previous .grid{
+  visibility:hidden;
+}
+
+.notebook-pages.is-turning-next .notebook-controls,
+.notebook-pages.is-turning-previous .notebook-controls{
+  visibility:hidden;
+}
+
+.notebook-pages.is-turning-next::after,
+.notebook-pages.is-turning-previous::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  border:2px solid var(--line);
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 2.2rem, rgba(114,56,61,.12) 2.25rem 2.3rem),
+    #fbf8f2;
+  backface-visibility:hidden;
+}
+
+.notebook-pages.is-turning-next::after{
+  transform-origin:left center;
+  animation:page-turn-next 1.1s ease-in-out forwards;
+}
+
+.notebook-pages.is-turning-previous::after{
+  transform-origin:right center;
+  animation:page-turn-previous 1.1s ease-in-out forwards;
+}
+
+@keyframes page-turn-next{
+  0%{ transform:rotateY(0); opacity:1; }
+  48%{ transform:rotateY(-92deg); opacity:1; }
+  100%{ transform:rotateY(-180deg); opacity:0; }
+}
+
+@keyframes page-turn-previous{
+  0%{ transform:rotateY(0); opacity:1; }
+  48%{ transform:rotateY(92deg); opacity:1; }
+  100%{ transform:rotateY(180deg); opacity:0; }
+}
+
+@media (max-width:640px){
+  .notebook-pages{
+    padding:24px 18px 24px 36px;
+  }
+
+  .notebook-pages::before{
+    left:20px;
+  }
+
+  .notebook .grid{
+    padding-left:0;
+  }
+}
         </style>
     </head>
 
@@ -208,7 +420,10 @@ template{display:none}
 
     <img src = "xd mi amiga gianella.jpg" alt = "picture" class = "image">
     <hr>
-    <div class="grid" id="grid">
+    <section class="notebook-scene" id="notebookScene" aria-label="Devlog notebook">
+      <div class="notebook" id="notebook">
+        <div class="notebook-pages">
+          <div class="grid" id="grid">
 
     <!-- ===== TEMPLATE CARD — duplicate this per entry ===== -->
      <article class="card" data-title="first day of school"
@@ -306,8 +521,19 @@ template{display:none}
       </template>
     </article>
 
-    </div>
-    </div>
+          </div>
+          <nav class="notebook-controls" aria-label="Devlog pages">
+            <button type="button" class="notebook-arrow" id="previousPage" aria-label="Previous page" disabled>←</button>
+            <span id="pageStatus" aria-live="polite"></span>
+            <button type="button" class="notebook-arrow" id="nextPage" aria-label="Next page">→</button>
+          </nav>
+        </div>
+        <div class="notebook-cover" aria-hidden="true">
+          <strong>elena's devlog</strong>
+          <span>scroll down to open</span>
+        </div>
+      </div>
+    </section>
 
     <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
         <div class="panel">
